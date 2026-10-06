@@ -1,0 +1,136 @@
+:root {
+    --primary-color: #0066cc;
+    --primary-hover: #004b99;
+    --bg-color: #f4f6f9;
+    --card-bg: #ffffff;
+    --text-color: #333333;
+    --border-color: #0066cc;
+    --error-color: #d9534f;
+    --radius: 8px;
+    --transition: all 0.2s ease-in-out;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.5;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+form {
+    width: 100%;
+    max-width: 800px;
+}
+
+fieldset {
+    background-color: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+legend {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    padding: 0 0.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.25rem;
+}
+
+label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="password"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: calc(var(--radius) / 2);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.15);
+}
+
+.error-message {
+    font-size: 0.8rem;
+    color: var(--error-color);
+    margin-top: 0.25rem;
+    display: block;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 0.85rem;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: calc(var(--radius) / 2);
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 0.5rem;
+}
+
+input[type="submit"]:hover {
+    background-color: var(--primary-hover);
+}
+
+/* Tablets e dispositivos médios (600px ou mais) */
+@media (min-width: 600px) {
+    fieldset {
+        padding: 2rem;
+    }
+
+    .address {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .address .form-group {
+        margin-bottom: 0;
+    }
+}
+
+/* Desktops e telas maiores (768px ou mais) */
+@media (min-width: 768px) {
+    .address {
+        grid-template-columns: 2fr 1fr; 
+    }
+
+    .address .form-group:nth-child(3),
+    .address .form-group:nth-child(4),
+    .address .form-group:nth-child(5) {
+        grid-column: span 1; 
+    }
+}
